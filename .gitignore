@@ -54,4 +54,4 @@ docs/_build/
 target/
 
 # Vagrant VM files, generated at runtime.
-/.vagrant
+.vagrant/
