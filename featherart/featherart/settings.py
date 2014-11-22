@@ -10,8 +10,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+import sys
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# Allows us to use /apps directory
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -40,7 +43,9 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = ()
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'submission',
+)
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
