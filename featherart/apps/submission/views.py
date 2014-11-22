@@ -1,3 +1,9 @@
-from django.shortcuts import render
+#from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from submission.models import Submission
+
+
+class SubmissionView(generic.DetailView):
+    model = Submission
+    template_name = 'submission/submission_detail.html'
