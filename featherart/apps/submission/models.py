@@ -1,9 +1,11 @@
 from django.db import models
 import os
+import uuid
 
 
+# We write all submission paths to include a UUID to guarantee uniqueness.
 def get_file_path(instance, filename):
-    return os.path.join('submissions', str(instance.id), filename)
+    return os.path.join('submissions', 'username', str(uuid.uuid4()) + "_" + filename)
 
 
 class Submission(models.Model):

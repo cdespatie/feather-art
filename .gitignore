@@ -53,5 +53,8 @@ docs/_build/
 # PyBuilder
 target/
 
-# Vagrant VM files, generated at runtime.
+# Vagrant VM files, generated at runtime
 .vagrant/
+
+# User uploaded media
+media/
