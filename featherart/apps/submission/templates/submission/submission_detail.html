@@ -1,9 +1,11 @@
 <div class="submission-title">
-    {{ submission.title }}
+    <h2>{{ submission.title }}</h2>
 </div>
+
 <div class="submission-content">
     <img src="{{ submission.content_path.url }}" alt="">
 </div>
+
 <div class="submission-tags">
 {% for tag in submission.tags.all %}
     {{ tag.name }}
