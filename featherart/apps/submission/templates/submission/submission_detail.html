@@ -1,15 +1,21 @@
-<div class="submission-title">
-    <h2>{{ submission.title }}</h2>
-</div>
+{% extends 'base.html' %}
 
-<div class="submission-content">
-    <img src="{{ submission.content_path.url }}" alt="">
-</div>
+{% block title %}- {{ submission.title }}{% endblock %}
 
-<div class="submission-tags">
-{% for tag in submission.tags.all %}
-    {{ tag.name }}
-{% empty %}
-    No tags!
-{% endfor %}
-</div>
+{% block content %}
+    <div class="submission-title">
+        <h2>{{ submission.title }}</h2>
+    </div>
+
+    <div class="submission-content">
+        <img src="{{ submission.content_path.url }}" alt="">
+    </div>
+
+    <div class="submission-tags">
+        {% for tag in submission.tags.all %}
+            {{ tag.name }}
+        {% empty %}
+            No tags!
+        {% endfor %}
+    </div>
+{% endblock %}
