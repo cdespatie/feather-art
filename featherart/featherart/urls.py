@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^submission/', include('submission.urls')),
+    url(r'^users/', include('users.urls'))
 )
 # This is for serving static user uploaded images from dev environment
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
