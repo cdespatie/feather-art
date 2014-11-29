@@ -98,6 +98,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
+    ('foundation', os.path.join(BASE_DIR, 'foundation/bower_components/foundation')),
+    ('javascripts', os.path.join(BASE_DIR, 'foundation/js')),
+    ('stylesheets', os.path.join(BASE_DIR, 'foundation/stylesheets'))
 )
 
 # Media files (user uploaded)
