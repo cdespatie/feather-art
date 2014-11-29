@@ -58,3 +58,6 @@ target/
 
 # User uploaded media
 media/
+
+# Foundation
+.sass-cache/
