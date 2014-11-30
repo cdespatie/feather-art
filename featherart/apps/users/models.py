@@ -1,14 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
-import os
 import uuid
+from django.db.models.signals import post_save
+from datetime import datetime
 
 
 class UserActivation(models.Model):
     user = models.OneToOneField(User)
-    activation_id = models.CharField(max_length=100,
-        blank=True, unique=True, default=uuid.uuid4)
+    activation_id = models.CharField(max_length=100, unique=True, default=uuid.uuid4)
     is_activated = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=datetime.now)
 
     def __unicode__(self):
-        return self.activation_id
+        return self.user.username
+
+
+def create_user_activation(sender, instance, created, **kwargs):
+    if created:
+        UserActivation.objects.create(user=instance)
+
+post_save.connect(create_user_activation, sender=User)

@@ -113,3 +113,8 @@ MEDIA_URL = '/media/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
+# Email setup for development
+# This dumps all email contents to the console. For production, set
+# up a real SMTP server connection please!
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
