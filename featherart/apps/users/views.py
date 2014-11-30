@@ -1,19 +1,23 @@
-#from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response
 from users.forms import UserForm
-#from django.template import RequestContext
-from django.views.generic import FormView
+from django.views.generic import CreateView
+from django.contrib.auth.models import User
 
 
-class RegisterView(FormView):
+class RegisterView(CreateView):
     template_name = 'users/register.html'
     form_class = UserForm
-    success_url = '/register/'
+    model = User
+    success_url = '/users/success/'
 
     def form_valid(self, form):
         # Do things
         print "Form is valid."
-        return super(RegisterView, self).form_valid(form)
-
+        self.object = form.save()
+        return render_to_response(
+            'users/register_success.html',
+            self.get_context_data(form=form)
+        )
 
 # def register(request):
 #     context = RequestContext(request)
