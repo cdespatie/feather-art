@@ -14,19 +14,22 @@ class RegisterView(CreateView):
     success_url = '/accounts/success/'
 
     def form_valid(self, form):
-        self.object = form.save()
-        self.object.is_active = False
-        self.object.save()
+        # TODO: Check a user already exists.
+        
+        # Create a new user
+        user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
 
+        # Send activation email
         send_mail('FeatherArt Registration',
             'Please register using: ' +
-            str(self.object.useractivation.activation_id),
+            str(user.useractivation.activation_id),
             'from@example.com',
-            [str(self.object.email)],
+            [str(user.email)],
             fail_silently=False)
 
+        # Return success page
         return render_to_response(
-            'accounts/register_success.html',
+            'users/register_success.html',
             self.get_context_data(form=form)
         )
 
@@ -41,7 +44,7 @@ class ActivateView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            # Process DATA
+            # Process data
             form.process()
 
             return HttpResponseRedirect('/activate/success')
