@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %} - Register{% endblock %}
+{% block title %} - Activate{% endblock %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form id="user_form" method="post" action="/accounts/register/"
+    <h1>Activate Account</h1>
+    <form id="user_form" method="post" action="/accounts/activate/"
             enctype="multipart/form-data" class="input-form">
         {% csrf_token %}
 
@@ -18,7 +18,7 @@
             </tr>
         {% endfor %}
         <div>
-            <input class="button" type="submit" name="submit" value="Register" />
+            <input class="button" type="submit" name="submit" value="Activate" />
         </div>
     </form>
 {% endblock %}
