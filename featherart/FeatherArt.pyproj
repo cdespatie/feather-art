@@ -52,6 +52,7 @@
     <Content Include="apps\submission\templates\submission\submission_detail.html" />
     <Content Include="apps\users\templates\users\activate.html" />
     <Content Include="apps\users\templates\users\activate_success.html" />
+    <Content Include="apps\users\templates\users\login.html" />
     <Content Include="apps\users\templates\users\register.html" />
     <Content Include="apps\users\templates\users\register_success.html" />
     <Content Include="foundation\bower_components\fastclick\lib\fastclick.js" />

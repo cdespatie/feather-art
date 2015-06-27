@@ -6,5 +6,5 @@ urlpatterns = patterns('',
     url(r'^register/$', RegisterView.as_view(), name='register'),
     url(r'^activate/$', ActivateView.as_view(), name='activate'),
     url(r'^login/$', login, {'template_name': 'users/login.html'}, name='login'),
-    url(r'^logout/$', logout)
+    url(r'^logout/$', logout, {'template_name': 'users/logout.html', 'next_page':'/'}, name='logout')
 )
