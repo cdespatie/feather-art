@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'featherart.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', include('home.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^submission/', include('submission.urls')),
     url(r'^accounts/', include('users.urls'))
