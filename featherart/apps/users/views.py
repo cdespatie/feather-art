@@ -17,8 +17,10 @@ class RegisterView(CreateView):
         # TODO: Check a username already exists.
         # TODO: Check if email already registered?
         
-        # Create a new user
+        # Create a new INNACTIVE user
         user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
+        user.is_active = False;
+        user.save()
 
         # Send activation email
         send_mail('FeatherArt Registration',
@@ -35,6 +37,7 @@ class RegisterView(CreateView):
         )
 
 class ActivateView(View):
+    # TODO: Stop user from re-activating an active account (all this does is reset date)
     template_name = 'users/activate.html'
     form_class = ActivateForm
 
