@@ -14,7 +14,8 @@ class RegisterView(CreateView):
     success_url = '/accounts/success/'
 
     def form_valid(self, form):
-        # TODO: Check a user already exists.
+        # TODO: Check a username already exists.
+        # TODO: Check if email already registered?
         
         # Create a new user
         user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])

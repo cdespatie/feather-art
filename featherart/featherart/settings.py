@@ -114,6 +114,12 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+# Needed to use request.path in template engine.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+)
+
 # Email setup for development
 # This dumps all email contents to the console. For production, set
 # up a real SMTP server connection please!
