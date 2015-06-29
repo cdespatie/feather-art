@@ -21,6 +21,15 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="apps\home\admin.py" />
+    <Compile Include="apps\home\migrations\__init__.py" />
+    <Compile Include="apps\home\models.py" />
+    <Compile Include="apps\home\tests.py" />
+    <Compile Include="apps\home\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="apps\home\views.py" />
+    <Compile Include="apps\home\__init__.py" />
     <Compile Include="apps\submission\admin.py" />
     <Compile Include="apps\submission\migrations\0001_initial.py" />
     <Compile Include="apps\submission\migrations\0002_auto_20141122_1708.py" />
@@ -49,10 +58,12 @@
     <Compile Include="manage.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="apps\home\templates\home\index.html" />
     <Content Include="apps\submission\templates\submission\submission_detail.html" />
     <Content Include="apps\users\templates\users\activate.html" />
     <Content Include="apps\users\templates\users\activate_success.html" />
     <Content Include="apps\users\templates\users\login.html" />
+    <Content Include="apps\users\templates\users\logout.html" />
     <Content Include="apps\users\templates\users\register.html" />
     <Content Include="apps\users\templates\users\register_success.html" />
     <Content Include="foundation\bower_components\fastclick\lib\fastclick.js" />
@@ -334,6 +345,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="apps\" />
+    <Folder Include="apps\home\" />
+    <Folder Include="apps\home\migrations\" />
+    <Folder Include="apps\home\templates\" />
+    <Folder Include="apps\home\templates\home\" />
     <Folder Include="apps\submission" />
     <Folder Include="apps\submission\migrations" />
     <Folder Include="apps\submission\templates\" />

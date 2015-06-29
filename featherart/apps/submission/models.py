@@ -21,7 +21,7 @@ class Submission(models.Model):
     date_submitted = models.DateTimeField()
     description = models.CharField(max_length=2000)
     content_rating = models.IntegerField()
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __unicode__(self):
         return self.title
